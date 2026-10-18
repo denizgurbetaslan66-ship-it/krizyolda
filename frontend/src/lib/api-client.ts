@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const API_BASE_URL = import.meta.env.VITE_API_URL ?? "https://krizyolda-backend.onrender.com";
+export const API_BASE_URL = "https://krizyolda-backend.onrender.com";
 const TOKEN_ANAHTARI = "krizyolda:token";
 
 export const tokenOku = () => sessionStorage.getItem(TOKEN_ANAHTARI);
