@@ -45,8 +45,13 @@ app = FastAPI(title=settings.APP_NAME, version="6.0.0", lifespan=lifespan,
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 app.add_middleware(GuvenlikBasliklariMiddleware)
-app.add_middleware(CORSMiddleware, allow_origins=settings.cors_listesi, allow_credentials=True,
-                   allow_methods=["*"], allow_headers=["*"])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 for r in (routes_auth, routes_kurum, routes_profil, routes_kaynak, routes_tarama, routes_analiz, routes_beyin, routes_uzman, routes_alarm,
           routes_icerik, routes_bilgi, routes_esik, routes_pr, routes_itibar):
